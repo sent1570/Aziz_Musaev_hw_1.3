@@ -49,16 +49,20 @@ private EditText etPassword;
                 btSignIn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        if (Integer.parseInt(asd) == Integer.parseInt(etPassword.getText().toString())){
-                            Intent intent2 = new Intent(MainActivity2.this,MainActivity3.class);
-                            String text6 = getIntent().getStringExtra("number");
-                            intent2.putExtra("number2",text6);
-                            startActivity(intent2);
+                        if (etPassword.getText().toString().length() != 0) {
+                            if (Integer.parseInt(asd) == Integer.parseInt(etPassword.getText().toString())) {
+                                Intent intent2 = new Intent(MainActivity2.this, MainActivity3.class);
+                                String text6 = getIntent().getStringExtra("number");
+                                intent2.putExtra("number2", text6);
+                                startActivity(intent2);
+                            }
+                            else {
+                                Toast.makeText(MainActivity2.this, "Неправильный пароль", Toast.LENGTH_SHORT).show();
+                            }
                         }
-                        else {
-                            Toast.makeText(MainActivity2.this, "Неправильный пароль", Toast.LENGTH_SHORT).show();
-
-                        }
+                            else {
+                                Toast.makeText(MainActivity2.this, "Неправильный пароль", Toast.LENGTH_SHORT).show();
+                            }
 
                     }
                 });
